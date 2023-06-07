@@ -2,7 +2,7 @@
  * Copyright (c) 2023. Vili (https://vili.dev) - All rights reserved
  */
 
-package dev.vili.eventbus;
+package dev.vili.haiku.eventbus;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

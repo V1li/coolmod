@@ -2,7 +2,7 @@
  * Copyright (c) 2023. Vili (https://vili.dev) - All rights reserved
  */
 
-package dev.vili.eventbus;
+package dev.vili.haiku.eventbus;
 
 public abstract class HaikuEvent {
     private boolean cancelled;

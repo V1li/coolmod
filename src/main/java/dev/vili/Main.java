@@ -1,6 +1,8 @@
 package dev.vili;
 
-import dev.vili.eventbus.EventBus;
+import dev.vili.haiku.eventbus.EventBus;
+import dev.vili.listeners.DeathListener;
+import dev.vili.listeners.TPSListener;
 import net.fabricmc.api.ClientModInitializer;
 
 import net.minecraft.client.MinecraftClient;
@@ -16,7 +18,9 @@ public class Main implements ClientModInitializer {
     public void onInitializeClient() {
         // This entrypoint is suitable for setting up client-specific logic, such as rendering.
         LOGGER.info("Vili's rat loaded. Cry.");
-        EVENT_BUS.register(TPS.INSTANCE);
+        EVENT_BUS.register(TPSListener.INSTANCE);
         LOGGER.info("Listening for TPS.");
+        EVENT_BUS.register(DeathListener.INSTANCE);
+        LOGGER.info("Listening for deaths.");
     }
 }

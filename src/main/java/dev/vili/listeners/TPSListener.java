@@ -1,12 +1,12 @@
-package dev.vili;
+package dev.vili.listeners;
 
 import dev.vili.event.events.PacketEvent;
-import dev.vili.eventbus.HaikuSubscribe;
+import dev.vili.haiku.eventbus.HaikuSubscribe;
 import net.minecraft.network.packet.s2c.play.WorldTimeUpdateS2CPacket;
 import net.minecraft.util.math.MathHelper;
 
-public class TPS {
-    public static TPS INSTANCE = new TPS();
+public class TPSListener {
+    public static TPSListener INSTANCE = new TPSListener();
     public static double ticks = 0;
     private static long prevTime = 0;
 

@@ -2,7 +2,7 @@
  * Copyright (c) 2023. Vili (https://vili.dev) - All rights reserved
  */
 
-package dev.vili.eventbus;
+package dev.vili.haiku.eventbus;
 
 import java.lang.reflect.Method;
 import java.util.function.Consumer;

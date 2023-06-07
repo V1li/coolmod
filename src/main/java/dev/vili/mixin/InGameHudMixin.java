@@ -1,7 +1,7 @@
 package dev.vili.mixin;
 
 import dev.vili.Main;
-import dev.vili.TPS;
+import dev.vili.listeners.TPSListener;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.util.Formatting;
@@ -22,7 +22,7 @@ public class InGameHudMixin {
 			String player_info = String.format("X: %.2f / Y: %.2f / Z: %.2f / Yaw: %.2f / Pitch: %.2f",
 					Main.mc.player.getX(), Main.mc.player.getY(), Main.mc.player.getZ(),
 					yaw, pitch);
-			String game_info = String.format("FPS: %s / TPS: %.2f / Ping: %s", fps, TPS.INSTANCE.ticks,
+			String game_info = String.format("FPS: %s / TPS: %.2f / Ping: %s", fps, TPSListener.INSTANCE.ticks,
 					Main.mc.getCurrentServerEntry() == null ? "0" : Main.mc.getCurrentServerEntry().ping);
 
 			context.drawTextWithShadow(Main.mc.textRenderer, player_info, 1, 1, Formatting.WHITE.getColorValue());
