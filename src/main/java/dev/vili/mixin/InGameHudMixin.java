@@ -4,6 +4,7 @@ import dev.vili.Main;
 import dev.vili.listeners.TPSListener;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.util.Formatting;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,11 +20,13 @@ public class InGameHudMixin {
 			float yaw = Main.mc.player.getYaw() % 360;
 			float pitch = Main.mc.player.getPitch();
 			String fps = Main.mc.fpsDebugString.split(" ", 2)[0];
+			PlayerListEntry playerEntry = Main.mc.player.networkHandler.getPlayerListEntry(Main.mc.player.getGameProfile().getId());
+			int latency = playerEntry == null ? 0 : playerEntry.getLatency();
 			String player_info = String.format("X: %.2f / Y: %.2f / Z: %.2f / Yaw: %.2f / Pitch: %.2f",
 					Main.mc.player.getX(), Main.mc.player.getY(), Main.mc.player.getZ(),
 					yaw, pitch);
 			String game_info = String.format("FPS: %s / TPS: %.2f / Ping: %s", fps, TPSListener.INSTANCE.ticks,
-					Main.mc.getCurrentServerEntry() == null ? "0" : Main.mc.getCurrentServerEntry().ping);
+					Main.mc.getCurrentServerEntry() == null ? "0" : latency);
 
 			context.drawTextWithShadow(Main.mc.textRenderer, player_info, 1, 1, Formatting.WHITE.getColorValue());
 			context.drawTextWithShadow(Main.mc.textRenderer, game_info, 1, 11, Formatting.WHITE.getColorValue());
