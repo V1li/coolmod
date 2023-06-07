@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "bakjeservermod",
 	"version": "${version}",
-	"name": "Mod",
+	"name": "cool mod",
 	"description": "Renders coords on screen idk",
 	"authors": [
 		"Vili"
