@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
-	"id": "bakjeservermod",
+	"id": "coolmod",
 	"version": "${version}",
 	"name": "cool mod",
-	"description": "Renders coords on screen idk",
+	"description": "Useful stuff",
 	"authors": [
 		"Vili"
 	],
@@ -20,7 +20,7 @@
 		]
 	},
 	"mixins": [
-		"bakjeservermod.mixins.json"
+      "coolmod.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.21",
