@@ -33,6 +33,7 @@ public class InGameHudMixin {
 			};
 			String biome = Main.mc.world.getRegistryManager().get(RegistryKeys.BIOME)
 					.getId(Main.mc.world.getBiome(Main.mc.player.getBlockPos()).value()).getPath().replace("_", " ");
+			String cap_biome = biome.substring(0, 1).toUpperCase() + biome.substring(1).toLowerCase();
 			String weather = Main.mc.world.isThundering() ? "Thundering" : Main.mc.world.isRaining() ? "Raining" : "Clear";
 			String fps = Main.mc.fpsDebugString.split(" ", 2)[0];
 			//String song = Main.mc.getMusicType().getSound().getKey().toString().substring(45).replace("]", "");
@@ -41,7 +42,7 @@ public class InGameHudMixin {
 			String player_info = String.format("X: %.2f / Y: %.2f / Z: %.2f / Yaw: %.2f / Pitch: %.2f / Facing: %s (%s)",
 					Main.mc.player.getX(), Main.mc.player.getY(), Main.mc.player.getZ(),
 					yaw, pitch, facing, axis);
-			String world_info = String.format("Biome: %s / Weather: %s", biome, weather);
+			String world_info = String.format("Biome: %s / Weather: %s", cap_biome, weather);
 			String game_info = String.format("FPS: %s / TPS: %.2f / Ping: %s", fps, TPSListener.INSTANCE.ticks,
 					Main.mc.getCurrentServerEntry() == null ? "0" : latency);
 			//String latest_packets = String.format("Packet sent: %s / Packet received: %s",
